@@ -1,0 +1,44 @@
+ALGORITHME Somme_Distincts
+
+VARIABLES
+
+ tab1, tab2 : tableaux d'entiers
+ i, j, somme : entiers
+ existe : booléen
+
+DÉBUT
+
+somme := 0;
+
+
+POUR i DE 0 À tab1.longueur - 1 FAIRE
+    existe := FAUX;
+
+    POUR j DE 0 À tab2.longueur - 1 FAIRE
+        SI tab1[i] = tab2[j] ALORS
+            existe := VRAI;
+        FIN_SI
+    FIN_POUR
+
+    SI existe = FAUX ALORS
+        somme := somme + tab1[i];
+    FIN_SI
+FIN_POUR
+
+POUR i DE 0 À tab2.longueur - 1 FAIRE
+    existe := FAUX;
+
+    POUR j DE 0 À tab1.longueur - 1 FAIRE
+        SI tab2[i] = tab1[j] ALORS
+            existe := VRAI;
+        FIN_SI
+    FIN_POUR
+
+    SI existe = FAUX ALORS
+        somme := somme + tab2[i];
+    FIN_SI
+FIN_POUR
+
+ÉCRIRE(somme);
+
+FIN
